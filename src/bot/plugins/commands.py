@@ -10,7 +10,7 @@ from ...configs.user import User
 from ...translator import Translator, Strings
 
 
-@Client.on_message(~custom_filters.check_user_filter)
+@Client.on_message(~filters.me & ~custom_filters.check_user_filter)
 async def access_denied_message(client: Client, message: Message) -> None:
     button = InlineKeyboardMarkup(
         [
